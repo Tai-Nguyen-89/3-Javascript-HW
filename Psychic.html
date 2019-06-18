@@ -44,13 +44,23 @@
             var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 // Game start
+//          //GUESSES
             // Take the letter, and provide 12 tries.
-            // If guess is false, and guess is greater than 0, subtract 1 guess,
+            // Keep letter for guesses > 0.
+            // If guess is false, and guesses is greater than 0, subtract 1 guess,
+
+            // When Guess is done, search if LOSS condition are true
+
+            // LOSSES
             // if guess is less than 0, add 1 loss
-            // Soft reset game with new letter, and add 12 guesses.
+            // When loss +1, trigger Soft reset game with new letter, don't modify wins and losses, and add 12 guesses.
             // 
-                // If guess is true, add 1 win
-                // Soft reset game with new letter and add 12 guesses
+
+            // If Loss parameters is false, activate WIN condition
+
+            // WIN
+                // If guess is true, trigger add 1 win
+                // When +1 win, trigger Soft reset game with new letter and add 12 guesses
                 
             if ((userGuess === computerGuess && guessTally < 0))
             document.getElementById("userchoice-text").innerHTML; {
@@ -63,8 +73,6 @@
                     }
             }
 
-            // if guessTally is < 0, endgame and add 1 loss.
-            // Soft reset game to new letter chosen by PC, keeping points.
 
 // if (userGuess !== computerGuess) {
 //     guessTally
