@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Word Guess!</title>
+</head>
+
+<body onload="game()">
+    <h2>Word is <p id="answer"></p>
+    </h2>
+
+    <div></div>
+    <h2>
+        <p id="guesscount">Remaining attempts: 12</p>
+    </h2>
+    <h2>Current letter: <p id="userText"></p>
+    </h2>
+
+    <input id="letter" type="text">
+    <input type="button" value="letter" onClick="letter()">
+
+
+    <script>
+        // array of words to choose from
+        var wordList = ["panda"];
+        // "snake", "aardvark", "chameleon", "badger", "raccoon", "chimpanzee", "angelfish", "crocodile", "zebra", "wolverine", "vulture", "stingray", "scorpion", "quail", "puma", "peacock", "octopus", "nightingale", "manatee", "mouse", "lobster", "kangaroo", "kiwi", "jellyfish", "iguana", "gorilla", "human", "hamster", "flamingo", "fox", "emu", "eagle", "elephant", "dog", "dolphin", "duck", "bison", "bear"];
+
+        // pick random word from the array list
+        // below; word is now also wordList because of the var word = wordList.
+        // word is now the word chosen from the list
+        // think it in reverse, word is the sum of wordList[Math.floor(Math.random() * wordList.length)];.
+
+        var word = wordList[Math.floor(Math.random() * wordList.length)];
+
+
+        // globals
+        var string;
+        var guess = 12;
+        var wordArray = [];
+
+        // Log the word Array and show the length with undscore _s. []; is an open/empty array. 
+        // go through the array and fill it with an _ for each letter that is in the word.
+        // this loop goes through the word and tells it to be replaced with an _, don't put a space after _. we can add gaps later
+        // since the outcome of random wordList is now word, we can take that word and sort it out and replace with _. Kind of like: var word = "panda"
+
+        // wordArray is AnswerArray
+
+        // document.onkeyup = function (letter) {
+        //     fullText = fullText + letter.key;
+        //     userText.innerHTML = fullText + "  "
+        //     }
+        console.log(wordArray)
+        console.log(string)
+        console.log(letter)
+
+
+
+        function game() {
+            for (var i = 0; i < word.length; i++) {
+                wordArray[i] = "_";
+            }
+
+            string = wordArray.join(" ");
+            // put string to show in "answer" or in this case, the space into answer
+            document.getElementById("answer").innerHTML = string;
+        }
+
+
+        // what is written after function is like a name, not which function to activate.
+        // document.onkeyup = function (event) {
+        //     fullText.innerHTML = event.key.toLowerCase();}
+        //     fullText = fullText + event.key;
+        //     userText.innerHTML = fullText + " ";
+        // }
+
+        // document.onkeyup = function (event) {
+        //     guesses.innerHTML = event.key + " ";
+        // }
+
+        // function letter() {
+        document.onkeyup = function (event) {
+            // fullText = fullText + event.key;
+            // userText.innerHTML = fullText + " something";
+            userText.innerHTML = event.key.toLowerCase();
+          
+
+            // if (action == 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z') {
+
+            var letter = document.getElementById("letter").value;
+            if (letter.length > 0) {
+                for (var i = 0; i < word.length; i++) {
+                    if (word[i] === letter) {
+                        wordArray[i] = letter;
+                    // }
+                    // else if (guess--); {
+            }
+        }
+
+        document.getElementById("guesscount").innerHTML = "Remaining attempts: " + guess;
+        document.getElementById("answer").innerHTML = wordArray.join(" ");
+          }
+
+      }
+    </script>
+
+</body>
+
+</html>
